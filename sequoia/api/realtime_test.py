@@ -23,15 +23,5 @@ def read_local():
     return rb_main
 
 
-def loop_bar():
-    """
-    遍历播放历史bar数据
-    :return:
-    """
-    rb_bar = read_local()
-    for i in range(len(rb_bar)):
-        print(rb_bar.iloc[i])
-
-
 if __name__ == '__main__':
-    loop_bar()
+    pass
