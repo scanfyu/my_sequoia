@@ -33,6 +33,9 @@ def loop_bar():
 
         c = CZSC(raw_bars)
 
+        # 1.衍生多周期数据；2.笔的划分
+        # 实时的数据传进来，丢到数据流里建模
+
 
 if __name__ == '__main__':
     loop_bar()
