@@ -26,12 +26,24 @@ def loop_bar():
     播放历史bar数据
     :return:
     """
+    # 全局笔数据
+    g_b_number = 0
+    # 使用一个列表存储全部的笔
+    g_b_content = []
+    # 笔的方向
+    bis_dir = []
+
+    # 读取本地的数据
     rb_bar = read_local()
     for i in range(len(rb_bar)):
         # 轮询播放bar数据
         raw_bars = kline_raw_bar(rb_bar.iloc[i:i+1])
 
         c = CZSC(raw_bars)
+        if len(c.bi_list) > g_b_number:
+            # 将笔数据缓存
+            g_b_content.append(c.bi_list[-1])
+            bis_dir.append(c.bi_list[-1].direction)
 
         # 1.衍生多周期数据；2.笔的划分
         # 实时的数据传进来，丢到数据流里建模
